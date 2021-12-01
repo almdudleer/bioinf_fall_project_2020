@@ -1,0 +1,6 @@
+seqkit
+samtools>=1.14
+bedtools
+bowtie
+fastqc
+multiqc
