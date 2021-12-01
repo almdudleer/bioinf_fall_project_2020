@@ -3,6 +3,8 @@ set -e
 
 [ -n "$BUILD_ROOT" ] || { echo "BUILD_ROOT variable is not set"; exit 1; }
 
+mkdir -p "$BUILD_ROOT/downloads"
+
 if ! [ -f "$BUILD_ROOT/downloads/mature.fa.gz" ] ; then
   wget https://www.mirbase.org/ftp/CURRENT/mature.fa.gz -P "$BUILD_ROOT/downloads"
 else
