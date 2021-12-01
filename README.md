@@ -1,4 +1,4 @@
-# MiRNA biomarkers in pituitary adenoma recurrence
+# MiRNA biomarkers of pituitary adenoma recurrence
 
 ## Directory structure
 ```
