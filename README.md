@@ -17,7 +17,7 @@
 │   │   ├── alignment
 │   │   ├── counts
 │   │   ├── index
-│   ├── out — counts tables
+│   ├── final_counts — counts tables
 │   │   ├── genome_counts.tsv
 │   │   └── mirna_counts.tsv
 │   └── multiqc_report.html — quality check report
@@ -107,7 +107,7 @@ make all
 
 Also, it provides a possibility to create only certain artifacts. For example:
 ```
-make build/out/mirna_counts.tsv
+make build/final_counts/mirna_counts.tsv
 ```
 
 Install some of the tools:

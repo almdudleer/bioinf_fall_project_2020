@@ -145,9 +145,9 @@ for sample in $SAMPLES ; do
 done
 
 ## Combine all sample counts with an R script
-mkdir -p "$BUILD_ROOT/out"
+mkdir -p "$BUILD_ROOT/final_counts"
 
-"$SRC_ROOT/pipeline/utils/combine_counts.R" "$BUILD_ROOT/mature/counts" "*.tsv" "$BUILD_ROOT/out/mirna_counts.tsv"
+"$SRC_ROOT/pipeline/utils/combine_counts.R" "$BUILD_ROOT/mature/counts" "*.tsv" "$BUILD_ROOT/final_counts/mirna_counts.tsv"
 
 
 # Genome reference part
@@ -209,6 +209,6 @@ for sample in $SAMPLES ; do
 done
 
 ## Combining the counts
-mkdir -p "$BUILD_ROOT/out"
+mkdir -p "$BUILD_ROOT/final_counts"
 
-"$SRC_ROOT/pipeline/utils/combine_counts.R" "$BUILD_ROOT/genome/counts" "*_taggedBAMcounts.txt" "$BUILD_ROOT/out/genome_counts.tsv"
+"$SRC_ROOT/pipeline/utils/combine_counts.R" "$BUILD_ROOT/genome/counts" "*_taggedBAMcounts.txt" "$BUILD_ROOT/final_counts/genome_counts.tsv"

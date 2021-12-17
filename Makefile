@@ -17,13 +17,13 @@ MATURE_ALIGNED=$(patsubst %, build/mature/alignment/%_aligned_maturemiRNA.sam, $
 
 
 # Phony targets
-all: build/out/genome_counts.tsv build/out/mirna_counts.tsv
+all: build/final_counts/genome_counts.tsv build/final_counts/mirna_counts.tsv
 
-qc: build/out/genome_counts.tsv build/out/mirna_counts.tsv
+qc: build/final_counts/genome_counts.tsv build/final_counts/mirna_counts.tsv
 	cd build && multiqc .
 
 # Genome
-build/out/genome_counts.tsv: build/genome/counts
+build/final_counts/genome_counts.tsv: build/genome/counts
 	./src/pipeline/genome/combine_counts.sh
 
 build/genome/counts: $(GENOME_TAGGED)
@@ -45,7 +45,7 @@ build/genome/index: build/downloads/GRCh38_no_alt.zip
 	./src/pipeline/genome/index.sh
 
 # Mature miRNA alignment
-build/out/mirna_counts.tsv: build/mature/counts
+build/final_counts/mirna_counts.tsv: build/mature/counts
 	./src/pipeline/mature/combine_counts.sh
 
 build/mature/counts: $(MATURE_SORTED)
