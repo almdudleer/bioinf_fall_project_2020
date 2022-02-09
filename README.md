@@ -23,7 +23,6 @@
 │   └── multiqc_report.html — quality check report
 ├── data — input for the program, needs to be filled manually
 └── src — source code
-    ├── all_in_one.sh — all the scripts from src/pipeline combined, better not to use
     ├── pipeline — many small scripts with main logic
     │   ├── genome
     │   │   ├── align.sh
@@ -50,6 +49,7 @@
     │   └── utils
     │       ├── combine_counts.R
     │       └── get_counts.py
+    ├── differential_expression.R — diff. expression script, intended to be run manually
     ├── requirements.txt — required libraries, gets called in setup_tools.sh
     └── run.sh — a script, which calls all scripts from src/pipeline
 
@@ -89,17 +89,13 @@ Also, the bioconda channel should be added to the conda installation:
 No further preliminary setup is needed. The scripts may request additional manual actions at runtime.
 
 ## Run options
-### all_in_one.sh
-It can be executed, but it's better to be regarded only as a reference. It's just copy-pasted scripts from `src/pipeline`. 
-Should be executed with `src` as a working directory.
-
 ### run.sh
 Invokes all the scripts from `src/pipeline` at once. Should also be executed with `src` as a working directory.
 
 ### Makefile
 This is the preferred run method. 
 It invokes the scripts from `src/pipeline`, but unlike other options, 
-it considers already built artifacts, so files are not overwritten and no computations are made twice.
+it takes already built artifacts into account, so files are not overwritten and no computations are made twice.
 It should be run from the project root as:
 ```
 make all
